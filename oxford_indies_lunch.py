@@ -159,8 +159,15 @@ def composeRestaurantTweet(restaurant, people_manager, twitter):
 
 	tweets.append(current_tweet + fixed_message)
 
+	id_to_reply_to = 0
 	for tweet in tweets:
-		print(tweet + "(" + str(len(tweet)) + ")")
+		if id_to_reply_to > 0:
+			result = twitter.update_status(status = tweet, in_reply_to_status_id = id_to_reply_to)		
+		else:
+			result = twitter.update_status(status = tweet)
+			
+		id_to_reply_to = long(result['id'])
+
 
 twitter = getTwitter()
 
@@ -213,8 +220,6 @@ restaurant_manager.saveRestaurants()
 
 composeRestaurantTweet(chosen_restaurant, person_manager, twitter)
 
-# TODO: notify all people
-# TODO: update date of last visited for that pub
 
 # TODO: Respond to requests to organise pub
 # TODO: Allow people to opt-in/out of lunch/pub individually
