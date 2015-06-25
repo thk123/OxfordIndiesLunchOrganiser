@@ -24,7 +24,7 @@ class Restaurant:
 
 	def getScore(self):
 		current_date = datetime.datetime.today().date()
-		difference = (current_date - last_visit).days
+		difference = (current_date - self.last_visit).days
 
 		if difference < 8:
 			return 0
