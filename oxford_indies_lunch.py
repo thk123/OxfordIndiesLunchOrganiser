@@ -180,6 +180,7 @@ for mention in reversed(mentions):
 
 
 chosen_restaurant = restaurant_manager.pickRestaurant()
+print("Chosen restaurant: " + chosen_restaurant)
 # TODO: choose random restaurant (based on when last visited)
 # TODO: notify all people
 # TODO: update date of last visited for that pub

@@ -16,6 +16,12 @@ class Restaurant:
 		self.restaurant_name = restaurant_name
 		self.last_visit = self.last_visit
 
+	def __str__(self):
+		return self.restaurant_name
+
+	def __repr__(self):
+		return self.__str__()
+
 	def getJsonObject(self):
 		return {
 		'name' : self.restaurant_name,
