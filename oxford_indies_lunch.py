@@ -123,7 +123,9 @@ def processAddRestaurant(tweet, twitter):
 	if m:
 		print("adding restaurant: " + m.group(1))
 
-		did_add_restaurant = restaurant_manager.addRestaurant(m.group(1))
+		new_restaurant = restaurant.Restaurant.fromName(m.group(1))
+		did_add_restaurant = restaurant_manager.addRestaurant(new_restaurant)
+
 		if did_add_restaurant:
 			restaurant_manager.saveRestaurants()
 			replyToTweet(tweet, "Ooo, good choice, I'd be salvating if I was a human", twitter)

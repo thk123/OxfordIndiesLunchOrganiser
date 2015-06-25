@@ -18,7 +18,7 @@ class RestaurantManager:
 
 	def addRestaurant(self, restaurant):
 		if restaurant not in self.loadedRestaurants:
-			self.loadedRestaurants.add(Restaurant.fromName(restaurant))
+			self.loadedRestaurants.add(restaurant)
 			return True
 		else:
 			return False
