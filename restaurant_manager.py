@@ -25,7 +25,7 @@ class RestaurantManager:
 
 	def pickRestaurant(self):
 		options = []
-		for restaurant in loadedRestaurants:
+		for restaurant in self.loadedRestaurants:
 			score = restaurant.getScore()
 			for i in range(0, score):
 				options.add(restaurant)
