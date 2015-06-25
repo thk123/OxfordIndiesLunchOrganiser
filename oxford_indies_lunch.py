@@ -157,7 +157,8 @@ def composeRestaurantTweet(restaurant, people_manager, twitter):
 			tweets.append(current_tweet)
 			current_tweet = "@" + person + " "
 
-	tweets.append(current_tweet)
+	tweets.append(current_tweet + fixed_message)
+
 	for tweet in tweets:
 		print(tweet + "(" + str(len(tweet)) + ")")
 
