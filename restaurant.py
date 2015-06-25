@@ -21,4 +21,14 @@ class Restaurant:
 		'name' : self.restaurant_name,
 		'lastVisit' : self.last_visit.toordinal()
 		}
+
+	def getScore(self):
+		current_date = datetime.today().date()
+		difference = (current_date - last_visit).days
+
+		if difference < 8:
+			return 0
+		else:
+			maxed_difference = min(difference, 60)
+			return maxed_difference / 7
 		

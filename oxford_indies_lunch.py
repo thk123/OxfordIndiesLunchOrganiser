@@ -179,7 +179,7 @@ for mention in reversed(mentions):
 			f.write(str(latest_status_id))
 
 
-
+chosen_restaurant = restaurant_manager.pickRestaurant()
 # TODO: choose random restaurant (based on when last visited)
 # TODO: notify all people
 # TODO: update date of last visited for that pub

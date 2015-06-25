@@ -1,5 +1,6 @@
 import json
 from restaurant import Restaurant
+from random import choice
 
 class RestaurantManager:
 
@@ -21,6 +22,18 @@ class RestaurantManager:
 			return True
 		else:
 			return False
+
+	def pickRestaurant(self):
+		options = []
+		for restaurant in loadedRestaurants:
+			score = restaurant.getScore()
+			for i in range(0, score):
+				options.add(restaurant)
+
+
+		print(options)
+		return choice(options)
+
 
 
 	def saveRestaurants(self):
