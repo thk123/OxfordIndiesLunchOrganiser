@@ -153,6 +153,7 @@ def composeRestaurantTweet(restaurant, people_manager, twitter):
 		if len(current_tweet) + length_required_for_handle < remaining_characters:
 			current_tweet = current_tweet + "@" + person + " "
 		else:
+			current_tweet = current_tweet + fixed_message
 			tweets.append(current_tweet)
 			current_tweet = "@" + person + " "
 
