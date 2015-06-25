@@ -37,4 +37,6 @@ class Restaurant:
 		else:
 			maxed_difference = min(difference, 60)
 			return maxed_difference / 7
-		
+	
+	def visit(self):
+		self.last_visit = datetime.datetime.today().date()
