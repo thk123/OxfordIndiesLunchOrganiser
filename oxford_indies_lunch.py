@@ -139,6 +139,26 @@ def processAddRestaurant(tweet, twitter):
 def processUnknownTweet(tweet, twitter):
 	replyToTweet(tweet, "Sorry, I don't recognise that command, use add, remove or restaurant, cc @thk123", twitter)
 
+
+def composeRestaurantTweet(restaurant, people_manager, twitter):
+	fixed_message = "We're going to " + restaurant.restaurant_name + " at 1pm"
+	remaining_characters = 140 - len(fixed_message)
+
+	tweets = []
+
+	current_tweet = ""
+	for person in people_manager.people:
+		length_required_for_handle = len(person) + 1 + 1
+
+		if len(current_tweet) + length_required_for_handle < remaining_characters:
+			current_tweet = current_tweet + "@" + person + " "
+		else:
+			tweets.append(current_tweet)
+			current_tweet = "@" + person + " "
+
+	for tweet in tweets:
+		print(tweet + "(" + str(len(tweet)) + ")")
+
 twitter = getTwitter()
 
 person_manager = person_manager.PersonManager()
@@ -187,7 +207,9 @@ print("Chosen restaurant: " + str(chosen_restaurant))
 chosen_restaurant.visit()
 
 restaurant_manager.saveRestaurants()
-# TODO: choose random restaurant (based on when last visited)
+
+composeRestaurantTweet(chosen_restaurant, person_manager, twitter)
+
 # TODO: notify all people
 # TODO: update date of last visited for that pub
 
