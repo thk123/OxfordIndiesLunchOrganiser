@@ -14,7 +14,7 @@ class Restaurant:
 
 	def __init__(self, restaurant_name, last_visit):
 		self.restaurant_name = restaurant_name
-		self.last_visit = self.last_visit
+		self.last_visit = last_visit
 
 	def __str__(self):
 		return self.restaurant_name
